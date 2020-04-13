@@ -7,26 +7,24 @@
                     <h3 class="panel-title">
                         <span class="glyphicon glyphicon-user">
                             {% block result %} 
-                              请登录
+                               请输入用户名密码进行注册
                             {% endblock %}
                         </span>
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/signin" method="post">
+                    <form action="/signup" method="post">
                         <div class="form-group">
                             <label>用户名</label>
                             <input type="text" name="name" class="form-control" placeholder="用户名">
-                            <p class="help-block">请输入用户名</p>
+                            <p class="help-block">此账户名用作登录，请输入英文</p>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>密码</label>
                             <input type="password" name="password" class="form-control" placeholder="密码">
-                            <p class="help-block">请输入密码</p>
+                            <p class="help-block">请妥善保管</p>
                         </div>
-                        <button type="submit" class="btn btn-primary">登录</button>
-                        <button class="btn btn-primary"><a href="/sign-up" style="color: white;">注册</a></button>
-                        
+                        <button type="submit" class="btn btn-primary">注册</button>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,9 @@
+{% extends "sign.html" %} 
+{% block result %}
+{% if result == 'success' %}
+<span class="text-success">登录成功</span>    
+{% else %}
+<span class="text-danger">{{result}}</span>   
+{% endif %}
+ 
+{% endblock %}

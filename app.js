@@ -3,7 +3,7 @@ const bodyParser = require('koa-bodyparser')
 const templating = require('./templating')
 // 导入controller middleware:
 const controller = require('./controller')
-let staticFiles = require('./static-files')
+const staticFiles = require('./static-files')
 
 const app = new Koa()
 
