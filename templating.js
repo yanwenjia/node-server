@@ -27,6 +27,14 @@ function templating(path, opts) {
   // 创建Nunjucks的env对象:
   var env = createEnv(path, opts)
   return async (ctx, next) => {
+    ctx.success = function(res){
+      ctx.response.status = 200
+      ctx.response.body = res
+    }
+    ctx.error = function(res){
+      ctx.response.status = 500
+      ctx.response.body = res
+    }
     // 给ctx绑定render函数:
     ctx.render = function (view, model) {
       // 把render后的内容赋值给response.body:

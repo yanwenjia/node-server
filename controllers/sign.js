@@ -12,15 +12,21 @@ module.exports = {
           }
         }).then((res)=>{
           if (res.length > 0){
-            ctx.render('sign-result.html',{result:'登录成功'+name})
+            // ctx.response.status = 500
+            // ctx.response.body = {
+            //   message:'success'
+            // }
+            ctx.success('success')
+            // ctx.render('sign-result.html',{result:'登录成功'+name})
           } else {
-            ctx.render('sign-result.html',{result:'用户名或密码错误'})
+            ctx.error('error')
+            // ctx.render('sign-result.html',{result:'用户名或密码错误'})
           }
         }).catch((err)=>{
-          console.log(err)
+          ctx.error(err)
         })
       } else {
-        ctx.render('sign-result.html',{result:'请输入用户名或密码'})
+        ctx.error('账户名或者密码为空')
       }
   },
   'POST /signup': async (ctx, next) => {
@@ -30,14 +36,9 @@ module.exports = {
       name,
       password
     }).then((res)=>{
-        ctx.render('signup-result.html', {
-              result: '注册成功'
-            })
+      ctx.success('success')
     }).catch((err)=>{
-      console.log(err)
-        ctx.render('signup-result.html', {
-          result: '注册失败'
-            })
+      ctx.error(err)
     })
   }
 }
