@@ -17,16 +17,17 @@ module.exports = {
             //   message:'success'
             // }
             ctx.success('success')
-            // ctx.render('sign-result.html',{result:'登录成功'+name})
+            ctx.render('sign-result.html',{result:'登录成功'+name})
           } else {
             ctx.error('error')
-            // ctx.render('sign-result.html',{result:'用户名或密码错误'})
+            ctx.render('sign-result.html',{result:'用户名或密码错误'})
           }
         }).catch((err)=>{
           ctx.error(err)
         })
       } else {
         ctx.error('账户名或者密码为空')
+        ctx.render('sign-result.html',{result:'账户名或者密码为空'})
       }
   },
   'POST /signup': async (ctx, next) => {
